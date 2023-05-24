@@ -14,6 +14,7 @@ const (
 )
 
 const (
+	None         = 0
 	OS           = 1 << iota
 	Architecture = 1 << iota
 	Revision     = 1 << iota
@@ -26,6 +27,11 @@ const (
 // Full returns the build version with all flags.
 func Full() string {
 	return Build(All)
+}
+
+// Minimum returns the minimum build version. (debug.BuildInfo.Main.Version only)
+func Minimum() string {
+	return Build(None)
 }
 
 // Build returns the build version of the application with given flag.
